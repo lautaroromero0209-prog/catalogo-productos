@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Productos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Inventario de Productos</h1>
+
+        <div class="layout">
+
+            <!-- FORMULARIO -->
+            <section class="panel">
+                <h2>Agregar producto</h2>
+
+                <form id="formProducto">
+                    <label for="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ej. Teclado mecánico"
+                        maxlength="100"
+                        required
+                    >
+
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" required>
+                        <option value="">Cargando categorías...</option>
+                    </select>
+
+                    <label for="precio">Precio</label>
+                    <input
+                        type="number"
+                        id="precio"
+                        placeholder="Ej. 45000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                    <label for="stock">Stock</label>
+                    <input
+                        type="number"
+                        id="stock"
+                        placeholder="Ej. 10"
+                        min="0"
+                        step="1"
+                        required
+                    >
+
+                    <button type="submit">+ Agregar producto</button>
+                    <p id="mensaje"></p>
+                </form>
+            </section>
+
+            <!-- CONTENIDO -->
+            <section class="contenido">
+
+                <!-- RESUMEN -->
+                <div class="resumen">
+                    <div class="tarjeta">
+                        <span>PRODUCTOS</span>
+                        <strong id="totalProductos">0</strong>
+                    </div>
+
+                    <div class="tarjeta">
+                        <span>STOCK TOTAL</span>
+                        <strong id="stockTotal">0</strong>
+                    </div>
+
+                    <div class="tarjeta">
+                        <span>VALOR INVENTARIO</span>
+                        <strong id="valorTotal">$ 0</strong>
+                    </div>
+
+                    <div class="tarjeta">
+                        <span>AGOTADOS</span>
+                        <strong id="agotados">0</strong>
+                    </div>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filtros">
+                    <h2>Buscar y filtrar</h2>
+
+                    <div class="filtros-grid">
+                        <input
+                            type="text"
+                            id="filtroNombre"
+                            placeholder="Buscar por nombre..."
+                        >
+
+                        <select id="filtroCategoria">
+                            <option value="">Todas las categorías</option>
+                        </select>
+
+                        <select id="filtroStock">
+                            <option value="">Cualquier stock</option>
+                            <option value="disponible">Disponible</option>
+                            <option value="bajo">Stock bajo</option>
+                            <option value="agotado">Agotado</option>
+                        </select>
+
+                        <input
+                            type="number"
+                            id="precioMaximo"
+                            placeholder="Precio máximo"
+                            min="0"
+                        >
+                    </div>
+                </div>
+
+                <!-- PRODUCTOS -->
+                <h2>Productos</h2>
+                <div id="productos" class="productos"></div>
+
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/index.js" defer></script>
+</body>
+</html>
